@@ -25,7 +25,7 @@ pipeline {
         stage('deploy to cluster') {
             steps{
                 script {
-                    sh "kubectl  set image deployment/pesbuk pesbuk=0der/sosmed:${BUILD_NUMBER}"
+                    sh "kubectl  set image deployment/pesbuk pesbuk=0der/jenkins:${BUILD_NUMBER}"
                 }
             }
         }  
