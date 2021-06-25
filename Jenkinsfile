@@ -11,9 +11,23 @@ pipeline {
         stage('Building Image') {
             steps{
                 script {
-                    sh "docker build . -t wahiddin/landingpage:${BUILD_NUMBER}"
+                    sh "docker build . -t 0der/jenkins:${BUILD_NUMBER}"
                 }
             }
         }
+        stage('Push dockerhub') {
+            steps{
+                script {
+                    sh "docker push 0der/jenkins:${BUILD_NUMBER}"
+                }
+            }
+        }
+        stage('deploy to cluster') {
+            steps{
+                script {
+                    sh "kubectl  set image deployment/pesbuk pesbuk=0der/sosmed:${BUILD_NUMBER}"
+                }
+            }
+        }  
      }
    }
