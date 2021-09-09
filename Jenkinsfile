@@ -25,7 +25,7 @@ pipeline {
         stage('deploy to cluster') {
             steps{
                 script {
-                    sh "kubectl  set image deployment/landing-page landing-page=0der/jenkins:${BUILD_NUMBER}"
+                    sh "kubectl  set image deployment/landing-page landing-page=0der/jenkins:${BUILD_NUMBER} -n tes"
                 }
             }
         }  
