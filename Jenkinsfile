@@ -30,15 +30,7 @@ pipeline {
                 script {
                     sh "kubectl  set image deployment/landing-page landing-page=0der/jenkins:${BUILD_NUMBER}"
                 }
-            }
-	       when{
-                branch 'tes' 
-                }
-            steps{
-                script {
-                    sh "kubectl  set image deployment/landing-page landing-page=0der/jenkins:${BUILD_NUMBER} -n tes"
-                }
-            }
+          
 
         }  
      }
